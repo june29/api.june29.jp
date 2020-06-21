@@ -1,4 +1,5 @@
 Jets.application.routes.draw do
+  get "nikki/:date", to: "nikki#show", constraints: { date: /^\d{4}-\d{2}-\d{2}$/ }
   root "jets/public#show"
 
   # The jets/public#show controller can serve static utf8 content out of the public folder.
