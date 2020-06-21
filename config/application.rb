@@ -1,5 +1,5 @@
 Jets.application.configure do
-  config.project_name = "api.june29.jp"
+  config.project_name = "jws"
   config.mode = "api"
 
   config.prewarm.enable = true # default is true
@@ -46,7 +46,6 @@ Jets.application.configure do
 
   # config.api.endpoint_type = 'PRIVATE' # Default is 'EDGE' https://amzn.to/2r0Iu2L
   # config.api.authorization_type = "AWS_IAM" # default is 'NONE' https://amzn.to/2qZ7zLh
-
 
   # More info: http://rubyonjets.com/docs/routing/custom-domain/
   # config.domain.hosted_zone_name = "example.com"
