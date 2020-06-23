@@ -20,6 +20,6 @@ class NikkiController < ApplicationController
   end
 
   def render_404
-    render(plain: "404 Nikki Not Found")
+    render(plain: "404 Nikki Not Found", status: 404)
   end
 end
