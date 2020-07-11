@@ -1,11 +1,5 @@
-# Jets Project
+# api.june29.jp
 
-This README would normally document whatever steps are necessary to get the application up and running.
+API of @june29, by @june29, for @june29.
 
-Things you might want to cover:
-
-* Dependencies
-* Configuration
-* Database setup
-* How to run the test suite
-* Deployment instructions
+https://api.june29.jp
