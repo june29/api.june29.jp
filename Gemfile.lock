@@ -158,7 +158,7 @@ GEM
     jets-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
     jmespath (1.4.0)
-    kramdown (2.2.1)
+    kramdown (2.3.0)
       rexml
     launchy (2.5.0)
       addressable (~> 2.7)
