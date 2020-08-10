@@ -6,6 +6,15 @@ class NikkiController < ApplicationController
   rescue_from OpenURI::HTTPError, with: :render_404
   rescue_from NikkiNotFound, with: :render_404
 
+  def index
+    url = "https://scrapbox.io/api/pages/june29/#{CGI.escape('日記')}"
+    data = JSON.parse(URI.open(url).read)
+    @nikkis =
+      data.dig("relatedPages", "links1hop").select { |page|
+        page.dig("title").starts_with?(Regexp.compile("\\d{4}-\\d{2}-\\d{2} \\w{3} : "))
+      }.sort_by { |page| page.dig("title") }.reverse
+  end
+
   def show
     date = params[:date]
     data = JSON.parse(URI.open("https://scrapbox.io/api/pages/june29/#{date}").read)
