@@ -7,7 +7,7 @@ gem "slim-jets"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", "= 11.1.2", platforms: [:mri, :mingw, :x64_mingw]
-  gem "puma", "= 4.3.3"
+  gem "puma", "4.3.11"
   gem "rack"
   gem "shotgun"
 end
