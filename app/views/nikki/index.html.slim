@@ -1,7 +1,0 @@
-h2
-  | Nikki
-ul
-  - @nikkis.each do |nikki|
-    li
-      - page_name = CGI.escape(nikki.dig("title").gsub(" ", "_"))
-      = link_to(nikki.dig("title"), "https://scrapbox.io/june29/#{page_name}", target: "_blank")
