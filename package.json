@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/june29/api.june29.jp#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
