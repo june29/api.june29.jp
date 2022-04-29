@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h2 Nikki
+
+  ul  
+  each nikki in nikkis
+    li
+      - page_name = nikki.title.replace(" ", "_")
+      a(href="https://scrapbox.io/june29/" + page_name target="_blank") #{nikki.title}

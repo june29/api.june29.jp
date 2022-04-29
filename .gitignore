@@ -11,3 +11,5 @@ coverage
 pkg
 tmp
 vendor/bundle
+
+dist
