@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/june29/api.june29.jp#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "express": "^4.17.3",
     "pug": "^3.0.2"
   },
