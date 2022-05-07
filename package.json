@@ -23,6 +23,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "express": "^4.17.3",
+    "feed": "^4.2.2",
     "pug": "^3.0.2"
   },
   "devDependencies": {
