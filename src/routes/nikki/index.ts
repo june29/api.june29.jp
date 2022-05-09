@@ -36,7 +36,7 @@ router.get("/atom.xml", (request: express.Request, response: express.Response) =
     const latestNikkiDate = new Date(latestNikki.updated * 1000);
 
     const feed = new Feed({
-      title: "june29の日記",
+      title: "june29のScrapbox日記",
       description: "june29がScrapboxで書いている日記です",
       id: "https://scrapbox.io/june29",
       link: "https://scrapbox.io/june29",
@@ -58,10 +58,16 @@ router.get("/atom.xml", (request: express.Request, response: express.Response) =
 
     nikkis.forEach((nikki: any) => {
       const link = `https://scrapbox.io/june29/${encodeURIComponent(nikki.titleLc)}`;
+      const description = nikki.descriptions.filter((line: string) => {
+        return !line.startsWith("[***");
+      }).map((line: any) => {
+        return line.replaceAll("[", "").replaceAll("]", "");
+      }).join("<br>\n");
+      const image = `<img src="${nikki.image}">`;
 
       feed.addItem({
         title: nikki.title,
-        description: nikki.descriptions[0],
+        description: `<p>${description}</p><p>${image}</p>`,
         id: link,
         link: link,
         content: "",
