@@ -61,7 +61,7 @@ router.get("/atom.xml", (request: express.Request, response: express.Response) =
       const description = nikki.descriptions.filter((line: string) => {
         return !line.startsWith("[***");
       }).map((line: any) => {
-        return line.replaceAll("[", "").replaceAll("]", "");
+        return line.replace(/(\[|\])/g, "");
       }).join("<br>\n");
       const image = `<img src="${nikki.image}">`;
 
