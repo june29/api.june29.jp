@@ -59,15 +59,15 @@ router.get("/atom.xml", (request: express.Request, response: express.Response) =
     nikkis.forEach((nikki: any) => {
       const link = `https://scrapbox.io/june29/${encodeURIComponent(nikki.titleLc)}`;
       const description = nikki.descriptions.filter((line: string) => {
-        return !line.startsWith("[***");
-      }).map((line: any) => {
-        return line.replace(/(\[|\])/g, "");
-      }).join("<br>\n");
-      const image = `<img src="${nikki.image}">`;
+        return !(line.startsWith("[***") || line.startsWith("[https://gyazo.com/"));
+      }).map((line: string) => {
+        return "<p>" + line.replace(/(\[|\])/g, "") + "</p>";
+      }).join("\n");
+      const image = `<p><img src="${nikki.image}"></p>`;
 
       feed.addItem({
         title: nikki.title,
-        description: `<p>${description}</p><p>${image}</p>`,
+        description: `${description}${image}`,
         id: link,
         link: link,
         content: "",
