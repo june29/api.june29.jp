@@ -23,10 +23,10 @@ router.get("/", (request: express.Request, response: express.Response) => {
 });
 
 router.get("/atom.xml", (request: express.Request, response: express.Response) => {
-  const url = scrapboxApiBaseUrl + encodeURIComponent("日記");
+  const url = "https://scrapbox.io/api/pages/june29?sort=created&limit=30";
 
   axios.get(url).then((scrapbox) => {
-    const nikkis = scrapbox.data["relatedPages"]["links1hop"].filter((page: any) => {
+    const nikkis = scrapbox.data.pages.filter((page: any) => {
       return page.title.match(nikkiRegex) && !page.title.includes("(書きかけ)");
     }).sort((a: any, b: any) => {
       return b.title.localeCompare(a.title);
@@ -57,7 +57,7 @@ router.get("/atom.xml", (request: express.Request, response: express.Response) =
     });
 
     nikkis.forEach((nikki: any) => {
-      const link = `https://scrapbox.io/june29/${encodeURIComponent(nikki.titleLc)}`;
+      const link = `https://scrapbox.io/june29/${encodeURIComponent(nikki.title)}`;
       const description = nikki.descriptions.filter((line: string) => {
         return !(line.startsWith("[***") || line.startsWith("[https://gyazo.com/"));
       }).map((line: string) => {
