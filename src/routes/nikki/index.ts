@@ -87,7 +87,7 @@ router.get("/:date", (request: express.Request, response: express.Response) => {
 
   axios.get(url).then((scrapbox) => {
     const nikki = scrapbox.data["relatedPages"]["links1hop"].filter((page: any) => {
-      return page.title.match(nikkiRegex);
+      return page.title.match(nikkiRegex) && page.title.includes(date);
     })[0];
     const page_name = encodeURIComponent(nikki.title.replace(" ", "_"));
 
