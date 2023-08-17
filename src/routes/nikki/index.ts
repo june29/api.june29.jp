@@ -36,23 +36,23 @@ router.get("/atom.xml", (request: express.Request, response: express.Response) =
     const latestNikkiDate = new Date(latestNikki.updated * 1000);
 
     const feed = new Feed({
-      title: "june29のScrapbox日記",
-      description: "june29がScrapboxで書いている日記です",
+      title: "純朴日記",
+      description: "junebokuが書いている日記です",
       id: "https://scrapbox.io/june29",
       link: "https://scrapbox.io/june29",
       language: "ja",
       image: "https://june29.jp/img/ring.jpg",
       favicon: "https://scrapbox.io/assets/img/favicon/favicon.ico",
-      copyright: "All rights reserved " + latestNikkiDate.getFullYear() + ", june29",
+      copyright: "All rights reserved " + latestNikkiDate.getFullYear() + ", juneboku",
       updated: latestNikkiDate,
       generator: "https://api.june29.jp/",
       feedLinks: {
         atom: "https://api.june29.jp/nikki/atom.xml"
       },
       author: {
-        name: "Jun OHWADA / june29",
-        email: "june29.jp@gmail.com",
-        link: "https://june29.jp"
+        name: "Jun OHWADA / juneboku",
+        email: "juneboku@gmail.com",
+        link: "https://juneboku.xyz"
       }
     });
 
