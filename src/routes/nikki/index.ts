@@ -3,7 +3,7 @@ import axios from "axios";
 
 const router = express.Router();
 const nikkiRegex = /^\d{4}-\d{2}-\d{2} \w{3} : /;
-const scrapboxApiBaseUrl = "https://scrapbox.io/api/pages/june29/";
+const scrapboxApiBaseUrl = "https://scrapbox.io/api/pages/juneboku/";
 
 router.get("/", (request: express.Request, response: express.Response) => {
   const url = scrapboxApiBaseUrl + encodeURIComponent("日記");
@@ -22,7 +22,7 @@ router.get("/", (request: express.Request, response: express.Response) => {
 });
 
 router.get("/atom.xml", (request: express.Request, response: express.Response) => {
-  axios.get("https://june29.github.io/nikki-feed/feed.xml").then((feed) => {
+  axios.get("https://junebako.github.io/sff/juneboku/nikki.xml").then((feed) => {
     response.send(feed.data);
   }).catch((error) => {
     console.log(error);
@@ -39,7 +39,7 @@ router.get("/:date", (request: express.Request, response: express.Response) => {
     })[0];
     const page_name = encodeURIComponent(nikki.title.replace(" ", "_"));
 
-    response.redirect("https://scrapbox.io/june29/" + page_name);
+    response.redirect("https://scrapbox.io/juneboku/" + page_name);
   }).catch((error) => {
     console.log(error);
   });
